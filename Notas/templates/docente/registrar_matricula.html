@@ -1,0 +1,12 @@
+{% extends 'docente/panelDocente.html' %}
+
+{% block title %}Registrar Matrícula{% endblock %}
+
+{% block content %}
+  <h2>Registrar Matrícula</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Muestra los campos del formulario -->
+    <button type="submit" class="btn btn-primary">Registrar Matrícula</button>
+  </form>
+{% endblock %}

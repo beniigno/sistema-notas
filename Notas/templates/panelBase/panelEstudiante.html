@@ -1,0 +1,38 @@
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/panelEstudiante.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="info-container">
+    <div class="header">
+        <h1>¡Bienvenido, <span id="user-name">{{ user.username }}</span>!</h1>
+        <p>Estos son los datos de tu perfil registrados en el sistema.</p>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">Primer nombre:</span>
+        <span class="info-value">{{ user.first_name }}</span>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">Apellido:</span>
+        <span class="info-value">{{ user.last_name }}</span>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">Correo electrónico:</span>
+        <span class="info-value">{{ user.email }}</span>
+    </div>
+
+    <div class="button-container">
+        <button type="button" onclick="window.location.href='{% url 'reporteEstudiante' dni_estudiante=dni_estudiante %}'">VER REPORTE</button>
+        <button type="button" onclick="window.location.href='{% url 'formularioContacto' %}'">CONTACTAR DOCENTE</button>
+        <button class="logout-btn" type="button" onclick="window.location.href='{% url 'validar' %}'">Cerrar sesión</button>
+    </div>
+</div>
+{% endblock %}

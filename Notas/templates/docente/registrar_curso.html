@@ -1,0 +1,22 @@
+
+{% extends 'docente/panelDocente.html' %}
+
+{% load static %}
+
+{% block title %}Registrar Curso{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/registrarCurso.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Registrar Curso</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}  <!-- Esto renderiza el formulario con los campos definidos -->
+  <button type="submit" class="btn btn-primary">Registrar Curso</button>
+</form>
+{% endblock %}
+
+
+

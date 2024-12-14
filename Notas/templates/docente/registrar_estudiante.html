@@ -1,0 +1,20 @@
+{% extends 'docente/panelDocente.html' %}
+
+{% load static %}
+
+{% block title %}Registrar Indicador{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/registrarEstudiante.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Registrar Estudiante</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Registrar</button>
+</form>
+{% endblock %}
+
+

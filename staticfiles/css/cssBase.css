@@ -1,0 +1,200 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+
+/* Sidebar */
+.sidebar {
+    width: 300px; /* Aumentar ancho */
+    background-color: #316699;
+    color: white;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .logo img {
+    width: 80%; /* Ajustar proporciones */
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 12px 10px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a.active,
+.sidebar nav ul li a:hover {
+    background-color: #25497b;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu button:hover {
+    background-color: #555;
+}
+
+/* Contenido principal */
+.contenido-principal {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+/* Reporte */
+.reporte {
+    width: 70%;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 20px;
+    color: #444;
+}
+
+.informacion-estudiante h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+.descargar {
+
+    display: flex;
+    background-color: #4466cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px auto 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.descargar:hover {
+    background-color: #3355aa;
+}
+
+/* Información lateral */
+.informacion-lateral {
+    width: 30%;
+    background-color: #3355aa;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.informacion-lateral h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.login-button {
+    display: inline-block;
+    background-color: #336699;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+.login-button:hover {
+    background-color: #285580;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}

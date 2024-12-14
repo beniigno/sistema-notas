@@ -1,0 +1,185 @@
+{% extends 'panelBase/base.html' %}
+
+{% load static %}
+
+{% block title %}Reporte del Estudiante{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ReporteEstudiante.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="reportEstudiante">
+    <h1>Reporte del Estudiante</h1>
+    <p>Bienvenido {{ estudiante.usuario.username }} - Sus calificaciones para hoy : {{ estudiante.usuario.date_joined|date:"d \d\e F \d\e Y" }}</p>
+
+    <div>
+        <form>
+            <!-- DNI -->
+            <div class="info-row">
+                <label for="dni"><strong>DNI:</strong></label>
+                <span id="dni">{{ estudiante.dni_estudiante }}</span>
+            </div><br>
+
+            <!-- Nombre -->
+            <div class="info-row">
+                <label for="nombre"><strong>Nombre:</strong></label>
+                <span id="nombre">{{ user.first_name }}</span>
+            </div><br>
+
+            <!-- Apellido -->
+            <div class="info-row">
+                <label for="apellido"><strong>Apellido:</strong></label>
+                <span id="apellido">{{ user.last_name }}</span>
+            </div><br>
+
+            <!-- Programa de Estudios -->
+            <div class="info-row">
+                <label for="programa_estudios"><strong>Programa de Estudios:</strong></label>
+                {% if estudiante.programa_estudios %}
+                    <span id="programa_estudios">{{ estudiante.programa_estudios }}</span>
+                {% else %}
+                    <span id="programa_estudios">No disponible</span>
+                {% endif %}
+            </div><br>
+
+            <!-- Periodo -->
+            <div class="info-row">
+                <label for="periodo"><strong>Ciclo:</strong></label>
+                <span id="periodo">{{ ciclo|default:"No disponible" }}</span>
+            </div><br>  
+
+            <!-- Unidad Didáctica (Combo) -->
+            <div class="info-row">
+                <label for="unidad_didactica"><strong>Unidad Didáctica:</strong></label>
+                <select id="unidad_didactica" name="unidad_didactica" onchange="actualizarDatosUnidad()">
+                    <option value="">Seleccione una unidad</option>
+                    {% for unidad in unidades %}
+                        <option value="{{ unidad.id }}">{{ unidad.nombre_curso }}</option>
+                    {% endfor %}
+                </select>
+            </div><br>
+
+            <!-- Docente (Texto) -->
+            <div class="info-row">
+                <label for="docente"><strong>Docente(s):</strong></label>
+                <span id="docente">Seleccione una unidad para cargar el docente</span>
+            </div><br>
+
+            <!-- Créditos -->
+            <div class="info-row">
+                <label for="creditos"><strong>Créditos:</strong></label>
+                <span id="creditos">Seleccione una unidad para cargar los créditos</span>
+            </div><br>
+
+            <!-- Horas -->
+            <div class="info-row">
+                <label for="horas"><strong>Horas:</strong></label>
+                <span id="horas">Seleccione una unidad para cargar las horas</span>
+            </div><br>
+
+            <!-- Indicadores dinámicos -->
+            <div class="info-row">
+                <label><strong>Indicadores:</strong></label><br>
+                <div id="indicadores" class="indicadores-box-container">
+                    <table class="indicadores-table">
+                        <thead>
+                            <tr>
+                                <th>Indicador</th>
+                                <th>Descripción</th>
+                                <th>Notas</th>
+                                <th>Promedio del Indicador</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los indicadores se agregarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div><br>
+
+            <!-- Promedio -->
+            <div class="info-row">
+                <label for="promedio"><strong>Promedio:</strong></label>
+                <span id="promedio">Seleccione una unidad para cargar el promedio</span>
+                <div class="info-row" id="estado-promedio"></div>
+            </div><br>
+
+            <!-- Mensaje de estado -->
+            <div class="info-row" id="estado-promedio"></div><br>
+
+            <script>
+                function actualizarDatosUnidad() {
+                    var unidadId = document.getElementById("unidad_didactica").value;
+                    
+                    if (!unidadId) {
+                        return;  // Si no se selecciona una unidad, no hacer nada
+                    }
+                    
+                    // Hacer la solicitud AJAX
+                    fetch("{% url 'obtener_datos_unidad' %}?unidad_id=" + unidadId)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                alert(data.error);
+                            } else {
+                                // Actualizar los campos con los datos recibidos
+                                document.getElementById("docente").innerText = data.docente;
+                                document.getElementById("creditos").innerText = data.creditos;
+                                document.getElementById("horas").innerText = data.horas;
+                                document.getElementById("promedio").innerText = data.promedio;
+
+                                // Mostrar mensaje de estado
+                                const estadoPromedio = document.getElementById("estado-promedio");
+                                let mensaje = '';
+                                let color = '';
+
+                                if (data.promedio >= 12.5) {
+                                    mensaje = '¡Aprobado! Buen trabajo.👏';
+                                    color = 'green';
+                                } else if (data.promedio >= 11) {
+                                    mensaje = 'Estás en peligro. Esfuérzate más. 🤔';
+                                    color = 'orange';
+                                } else {
+                                    mensaje = 'Desaprobado. Esfuérzate más. 😒';
+                                    color = 'red';
+                                }
+
+                                estadoPromedio.innerHTML = `<strong style="color:${color}">${mensaje}</strong>`;
+
+                                // Actualizar los indicadores con tabla
+                                const indicadoresContainer = document.querySelector(".indicadores-table tbody");
+                                indicadoresContainer.innerHTML = ""; // Limpiar antes de agregar nuevos indicadores
+
+                                data.indicadores.forEach((indicador, index) => {
+                                    const row = document.createElement('tr');
+
+                                    // Crear las celdas para cada indicador
+                                    row.innerHTML = `
+                                        <td>Indicador ${index + 1}</td>
+                                        <td>${indicador.descripcion}</td>
+                                        <td>${indicador.notas.join(", ") || "No disponible"}</td>
+                                        <td>${indicador.promedio}</td>
+                                    `;
+                                    
+                                    // Agregar la fila al cuerpo de la tabla
+                                    indicadoresContainer.appendChild(row);
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                        });
+                }
+            </script>
+
+            <!-- Botones -->
+            <div class="button-container">
+                <button type="button" class="btn-primary" id="btnDescargar">Descargar PDF</button>
+                <a href="{% url 'index' %}" class="btn-secondary">Cancelar</a>
+                <a href="{% url 'index' %}" class="btn-secondary"><i class="fas fa-home"></i> Inicio</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

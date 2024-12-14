@@ -1,0 +1,71 @@
+{% extends 'panelBase/base.html' %}
+
+{% load static %}
+
+{% block title %}Reporte del Estudiante{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ContactarDocente.css' %}">
+{% endblock %}
+{% block content %}
+    <h1>Contactar al Docente</h1>
+    <form action="{% url 'contactar' %}" method="POST" class="form">{% csrf_token %}
+        
+        <!-- Primer Combobox para seleccionar el docente -->
+        <label for="docente"><strong>Docente(s):</strong></label>
+        <select id="docente" name="docente" onchange="actualizarEmail()">
+            <option value="">Selecciona una opción</option>
+            {% for docente in docentes %}
+                <option value="{{ docente.id }}" data-email="{{ docente.usuario.email }}">
+                    {{ docente.usuario.first_name }} {{ docente.usuario.last_name }}
+                </option>
+            {% empty %}
+                <option value="">No hay docentes disponibles</option>
+            {% endfor %}
+        </select>
+
+        <!-- Segundo Combobox para seleccionar la unidad didáctica -->
+        <div class="info-row">
+            <label for="unidad"><strong>Docente:</strong></label>
+            <select id="unidad" name="unidad">
+                <option value="">Escoje un docente primero</option>
+                {% for docente in docentes %}
+                    {% for curso in docente.curso_set.all %}
+                        <option value="{{ curso.id }}">{{ curso.nombre_curso }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+        </div><br>
+
+        <!-- Campo para el asunto -->
+        <p>Asunto: <input type="text" name="txtAsunto"></p>
+        
+        <!-- Campo para el email, que será actualizado por JavaScript -->
+        <p>Email: <input type="email" name="txtEmail" id="emailDocente"></p>
+        
+        <!-- Campo para el mensaje -->
+        <p>Mensaje: <textarea name="txtMensaje" rows="5" style="resize: none;"></textarea></p>
+
+        <p><input type="submit" value="Enviar"></p>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+{% endblock %}
+
+<script>
+    // Función que actualiza el campo de Email cuando se selecciona un docente
+    function actualizarEmail() {
+        // Obtener el valor seleccionado del docente
+        var select = document.getElementById('docente');
+        var emailInput = document.getElementById('emailDocente');
+
+        // Obtener el email asociado al docente seleccionado
+        var selectedOption = select.options[select.selectedIndex];
+        var email = selectedOption.getAttribute('data-email');
+
+        // Asignar el email al campo de email
+        emailInput.value = email;
+    }
+</script>

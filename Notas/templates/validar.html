@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <title>Sistema Gestión Control de Notas</title>
+</head>
+<body style="background-image: url('{% static 'img/fnd.jpg' %}');">
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="{% url 'validar' %}">
+                <img src="{% static 'img/logo.jpeg' %}" alt="Logo del Instituto">
+            </a>
+        </div>
+        <!-- Content -->
+        <div class="content">
+            <!-- Text Section -->
+            <div class="text-section">
+                <div class="header">
+                    <h1>IESP PADRE ABAD - Sistema de Control de Notas</h1>
+                </div>
+                <div class="description">
+                    <p>El sistema de control de notas tiene como propósito ser una herramienta que automatice e integre los procesos académicos relacionados con la gestión 
+                        y registro de notas en el Instituto de Educación Superior Público Padre Abad. Este sistema abarca los procesos de planificación, registro de evaluaciones, 
+                        generación de reportes y análisis del rendimiento estudiantil. Su principal finalidad es asegurar un control eficiente y un servicio de calidad en el manejo 
+                        de información académica, permitiendo reducir los tiempos de atención en cada uno de los procesos y mejorando significativamente el servicio a estudiantes, 
+                        docentes y administradores.</p>
+                </div>
+            </div>
+            <!-- Buttons Section -->
+            <div class="buttons-section">
+                <a href="{% url 'login' %}"  class="button">
+                    <img src="{% static 'img/docentes.png' %}" alt="Icono Docentes"> ACCESO A DOCENTES
+                </a>
+                <a href="{% url 'login' %}" class="button">
+                    <img src="{% static 'img/estudiantes.png' %}" alt="Icono Estudiantes"> ACCESO A ESTUDIANTES
+                </a>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>

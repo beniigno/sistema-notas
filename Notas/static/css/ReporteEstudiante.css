@@ -1,0 +1,141 @@
+/* Estilos globales */
+body {
+   background-color: #2980b9;
+}
+
+/* Estilo para el contenedor principal */
+.reportEstudiante {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 900px;
+}
+
+.reportEstudiante h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.reportEstudiante p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #7f8c8d;
+}
+
+/* Estilo para las filas de información */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.info-row label {
+    font-weight: bold;
+    color: #2c3e50;
+    width: 200px;
+}
+
+.info-row span, .info-row select {
+    color: #7f8c8d;
+    font-size: 16px;
+    flex: 1;
+    text-align: left;
+}
+
+/* Estilo para las celdas de la tabla de indicadores */
+.indicadores-box-container {
+    margin-top: 30px;
+}
+
+.indicadores-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.indicadores-table th, .indicadores-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.indicadores-table th {
+    background-color: #3498db;
+    color: #fff;
+    font-size: 18px;
+}
+
+.indicadores-table td {
+    color: #333;
+}
+
+.indicadores-table tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para el botón de descarga y los enlaces */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.button-container .btn-primary {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-container .btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.button-container .btn-secondary {
+    background-color: #bdc3c7;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button-container .btn-secondary:hover {
+    background-color: #95a5a6;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info-row label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .info-row span, .info-row select {
+        width: 100%;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

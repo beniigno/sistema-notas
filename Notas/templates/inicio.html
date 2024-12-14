@@ -1,0 +1,15 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Fondo</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inicio.css' %}">
+</head>
+<body>
+    <a href="{% url 'validar' %}" class="boton">Ir a otra página</a>
+</body>
+</html>

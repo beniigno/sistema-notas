@@ -1,0 +1,119 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu a {
+    text-decoration: none;
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    background-color: #555;
+}
+
+/* Contenido principal */
+.contenido-principal {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+/* Reporte */
+.reporte {
+    width: 70%;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(200, 96, 96, 0.1);
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 20px;
+    color: #444;
+}
+
+.informacion-estudiante h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+}
+
+.descargar {
+    display: block;
+    background-color: #4466cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px auto 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.descargar:hover {
+    background-color: #3355aa;
+}
+
+/* Información lateral */
+.informacion-lateral {
+    width: 30%;
+    background-color: #3355aa;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.informacion-lateral h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}

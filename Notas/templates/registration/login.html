@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_user.css' %}">
+    <script>
+        // Función para alternar la visibilidad de la contraseña
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var toggleIcon = document.getElementById("toggle-icon");
+            // Si el tipo de campo es "password", lo cambiamos a "text" para mostrar la contraseña
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleIcon.innerHTML = "🙈"; // Cambia el ícono a "ojo cerrado"
+            } else {
+                passwordField.type = "password";
+                toggleIcon.innerHTML = "👁️"; // Cambia el ícono a "ojo abierto"
+            }
+        }
+    </script>
+</head>
+<body style="background-image: url('{% static 'img/fondo_login.jpg' %}');">
+    <div class="container">
+        <!-- Menú lateral -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="{% static 'img/logo.jpeg' %}" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'validar' %}" class="active"><span>🏠</span> Inicio</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Sección principal -->
+        <main class="main-content">
+            <div class="login-box">
+                <div class="header">
+                    <img src="{% static 'img/logo.jpeg' %}" alt="Logo">
+                    <h2>Welcome</h2>
+                </div>
+
+                <!-- Mostrar el mensaje si hay un error de autenticación -->
+                {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            <div class="message">
+                                <p>{{ message }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="usuario">Username</label>
+                    <input type="text" name="username" id="username" placeholder="Usuario">
+
+                    <label for="pass">Password</label>
+                    <div class="password-box">
+                        <input type="password" name="password" id="password" placeholder="Contraseña">
+                        <!-- Botón para mostrar/ocultar contraseña -->
+                        <span class="toggle-password" id="toggle-icon" onclick="togglePassword()">👁️</span>
+                    </div>
+                    <button type="submit" class="submit-button">INGRESAR ➔</button>
+                </form>
+                <div>
+                    <a href="{% url 'password-reset' %}">¿Olvidaste tu contraseña?</a><br>
+                    <a href="{% url 'register_user' %}">Registrar nuevo usuario</a>
+                    {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

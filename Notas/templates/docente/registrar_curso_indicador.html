@@ -1,0 +1,18 @@
+{% extends 'docente/panelDocente.html' %}
+
+{% load static %}
+
+{% block title %}Curso por indicador{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/registrarCursoIndicador.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Registrar Curso-Indicador</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Muestra los campos del formulario -->
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+{% endblock %}

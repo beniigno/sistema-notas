@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validar Credencial: </title>
+</head>
+<body>
+    <h1>Bienvenido:</h1><h3>{{ user.first_name }} </h3>
+    <p>Contactese con un administrador o un docente para que le pueda asignar un rol de.</p>
+    <ul>
+        <li>Docente</li>
+        <li>Alumno</li>
+    </ul>
+    <li><button type="button" onclick="window.location.href='{% url 'validar' %}'">Volver</button></li>
+</body>
+</html>

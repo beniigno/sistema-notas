@@ -1,0 +1,119 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-image: url('../IMAGENES/fondo.jfif'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Panel izquierdo */
+.panel-izquierdo {
+    width: 40%;
+    background-color: #075cb0;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-izquierdo img.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.panel-izquierdo h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.panel-izquierdo p {
+    font-size: 14px;
+}
+
+/* Panel principal */
+.panel-principal {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Formulario recuperar contraseña */
+.formulario-recuperar {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.encabezado img.logo-formulario {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.encabezado h2 {
+    font-size: 20px;
+    color: #2c3e50;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form label {
+    font-size: 14px;
+    color: #333;
+}
+
+form input, form select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-box {
+    display: flex;
+    align-items: center;
+}
+
+.password-box .toggle-password {
+    margin-left: -30px;
+    cursor: pointer;
+}
+
+.btn-recuperar {
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-recuperar:hover {
+    background-color: #34495e;
+}

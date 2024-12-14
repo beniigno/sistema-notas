@@ -1,0 +1,200 @@
+/* Contenedor principal del panel */
+.panel-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Menú lateral */
+.panel-menu {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título del menú */
+.panel-menu h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+/* Lista de opciones del menú */
+.panel-menu ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.panel-menu li {
+    margin-bottom: 10px;
+}
+
+.panel-menu button {
+    width: 100%;
+    padding: 10px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.panel-menu button:hover {
+    background-color: #0362d6;
+    transform: scale(1.02);
+}
+
+.panel-menu button:active {
+    transform: scale(1);
+}
+
+/* Contenido principal */
+.panel-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+/* Estilo adicional para panelDocente */
+.central-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Alinea al inicio de la pantalla */
+    padding: 20px;
+    background-color: #f5f5f5; /* Fondo neutro */
+    margin-bottom: 20px;
+}
+
+/* Estilo para los datos del docente */
+.datos-docente {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Separación del menú lateral */
+}
+
+.datos-docente h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.datos-docente p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.datos-docente strong {
+    color: #34495e;
+}
+
+/* Estilo para el formulario docente */
+.formulario-docente {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    color: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Separación entre datos y formulario */
+}
+
+.formulario-docente h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Estilo general para el formulario */
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Campos de entrada del formulario */
+form input, form select, form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Botón de envío */
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Centrando el formulario */
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Estilo para el contenedor del logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #34495e;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Alinear el enlace adicional */
+form + a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+form + a:hover {
+    text-decoration: underline;
+}

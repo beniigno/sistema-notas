@@ -1,0 +1,215 @@
+/* Configuración global */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    color: #212529;
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: #1c1e21; /* Negro suave */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    height: 100vh;
+    position: fixed;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar .logo img {
+    width: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #ffc107;
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.5);
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar nav ul li a span {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background: #ffc107;
+    color: #1c1e21;
+    transform: translateY(-2px);
+}
+
+/* Botón */
+.button-container {
+    margin: 30px 0;
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(45deg, #ffc107, #ff5722);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s, background 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #ff9800, #d84315);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 280px;
+    padding: 40px;
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main h1 {
+    font-size: 24px;
+    color: #212529;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+main p {
+    font-size: 16px;
+    color: #6c757d;
+    text-align: center;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 20px 0;
+    }
+
+    .sidebar nav ul {
+        flex-direction: row;
+    }
+
+    .main-content {
+        margin: 0;
+        padding: 20px;
+    }
+}
+
+
+
+
+/* Estilo general para los contenedores de los indicadores */
+.indicadores-box-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los recuadros se acomoden en varias filas */
+    gap: 20px; /* Espacio entre los recuadros */
+}
+
+/* Estilo individual para cada indicador */
+.indicador-box {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px; /* Ancho fijo para los recuadros */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los títulos dentro de cada recuadro */
+.indicador-box h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilo para las notas y el promedio */
+.indicador-box .notas, .indicador-box .promedio {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.indicador-box .notas {
+    color: #4caf50; /* Color verde para las notas */
+}
+
+.indicador-box .promedio {
+    font-weight: bold;
+    color: #ff5722; /* Color naranja para el promedio */
+}
+
+
+/* static/css/styles.css */
+.notification {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, sans-serif;
+}
+
+.notification.success {
+    background-color: #28a745;
+    color: white;
+}
+
+.notification.warning {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.notification.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+
+#estado-promedio {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
